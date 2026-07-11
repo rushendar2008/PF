@@ -1,0 +1,8 @@
+# Privacy
+thumb.jpg
+processed_thumb.jpg
+media_*.jpg
+
+# Python
+__pycache__/
+*.pyc
