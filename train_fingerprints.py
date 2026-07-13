@@ -99,6 +99,14 @@ def train_model():
     
     # Initialize Model, Loss Function, and Optimizer
     model = FingerprintGenderModel().to(device)
+    save_path = "fingerprint_gender_model.pth"
+    
+    if os.path.exists(save_path):
+        print(f"Loading existing model from {save_path} to train further...")
+        model.load_state_dict(torch.load(save_path, map_location=device))
+    else:
+        print("Starting training from scratch...")
+        
     criterion = nn.BCELoss() # Binary Cross Entropy for Male/Female
     optimizer = optim.Adam(model.parameters(), lr=0.001)
 
